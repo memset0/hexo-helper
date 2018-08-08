@@ -36,7 +36,7 @@ e['time'] = Entry(Frame1,
 
 # [新建文章] 根据 Hexo Path 来新建文章
 def new_post():
-    os.system('cd {path} && hexo n {name} '.format(
+    os.system('cd {path} && hexo n "{name}"'.format(
         path = hexo_path,
         name = e['new_post'].get() or 'noname',
     ))
