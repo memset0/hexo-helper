@@ -75,7 +75,7 @@ def hexo_g():
 b['hexo_g'] = Button(Frame2, text=' 一键生成 ', command = hexo_g)
 
 def hexo_d():
-    os.system('start cmd /c "cd {path} && hexo d"'.format(path = hexo_path))
+    os.system('start cmd /c "cd {path} && hexo d -g"'.format(path = hexo_path))
 b['hexo_d'] = Button(Frame2, text=' 一键提交 ', command = hexo_d)
 
 # [打开目录] 一键打开 ... 目录
