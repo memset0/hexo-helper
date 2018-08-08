@@ -7,8 +7,8 @@ hexo_path = 'C:\\Users\\surface\\Desktop\\Hexo\\oi'
 
 window = Tk()
 window.title('Hexo Helper (@memset0)')
-window.minsize(320, 200)
-window.maxsize(320, 200)
+window.minsize(320, 160)
+window.maxsize(320, 160)
 
 Frame1 = Frame(window)
 Frame1.pack()
@@ -56,15 +56,29 @@ for it in range(0, len(list)):
 # ===== 第二部分 =====
 
 b = {}
-list = ['server', 'open_dir', 'open_post']
+row = [0, 0, 0, 0, 1, 1, 1, 1]
+column = [0, 1, 2, 3, 0, 1, 2, 3]
+list = ['hexo_s', 'hexo_clean','hexo_g', 'hexo_d', 'open_dir', 'open_post', 'open_theme', 'open_public']
 
-# [启动调试] 开启 Hexo Server
+# [一键命令] 一键完成 ... 操作
 
-def start_server():
-    os.system('start cmd /c "cd {path} && hexo s"'.format(
-        path = hexo_path,
-    ))
-b['server'] = Button(Frame2, text=' 开启调试 ', command = start_server)
+def hexo_s():
+    os.system('start cmd /c "cd {path} && hexo s"'.format(path = hexo_path))
+b['hexo_s'] = Button(Frame2, text=' 一键调试 ', command = hexo_s)
+
+def hexo_clean():
+    os.system('start cmd /c "cd {path} && hexo clean"'.format(path = hexo_path))
+b['hexo_clean'] = Button(Frame2, text=' 一键清理 ', command = hexo_clean)
+
+def hexo_g():
+    os.system('start cmd /c "cd {path} && hexo g"'.format(path = hexo_path))
+b['hexo_g'] = Button(Frame2, text=' 一键生成 ', command = hexo_g)
+
+def hexo_d():
+    os.system('start cmd /c "cd {path} && hexo d"'.format(path = hexo_path))
+b['hexo_d'] = Button(Frame2, text=' 一键提交 ', command = hexo_d)
+
+# [打开目录] 一键打开 ... 目录
 
 def open_dir():
     os.system('explorer "{path}"'.format(path = hexo_path))
@@ -72,11 +86,20 @@ b['open_dir'] = Button(Frame2, text=' 打开目录 ', command = open_dir)
 
 def open_post():
     os.system('explorer "{path}\\source\\_posts"'.format(path = hexo_path))
-b['open_post'] = Button(Frame2, text=' 打开文章目录 ', command = open_post)
+b['open_post'] = Button(Frame2, text=' 打开文章 ', command = open_post)
+
+def open_theme():
+    os.system('explorer "{path}\\themes"'.format(path = hexo_path))
+b['open_theme'] = Button(Frame2, text=' 打开主题 ', command = open_theme)
+
+def open_public():
+    os.system('explorer "{path}\\public"'.format(path = hexo_path))
+b['open_public'] = Button(Frame2, text=' 打开结果 ', command = open_public)
 
 
 for it in range(0, len(list)):
-    b[list[it]].grid(row = 0, column = it, sticky = W, padx = 10, pady = 4)
+    # print(it, list[it], row[it], column[it])
+    b[list[it]].grid(row = row[it], column = column[it], sticky = W, padx = 5, pady = 4)
 
 refresh_time()
 window.mainloop()
