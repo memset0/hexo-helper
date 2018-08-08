@@ -56,7 +56,7 @@ for it in range(0, len(list)):
 # ===== 第二部分 =====
 
 b = {}
-list = ['server', 'open_post']
+list = ['server', 'open_dir', 'open_post']
 
 # [启动调试] 开启 Hexo Server
 
@@ -66,9 +66,13 @@ def start_server():
     ))
 b['server'] = Button(Frame2, text=' 开启调试 ', command = start_server)
 
-def open_post():
+def open_dir():
     os.system('explorer "{path}"'.format(path = hexo_path))
-b['open_post'] = Button(Frame2, text=' 打开目录 ', command = open_post)
+b['open_dir'] = Button(Frame2, text=' 打开目录 ', command = open_dir)
+
+def open_post():
+    os.system('explorer "{path}\\source\\_posts"'.format(path = hexo_path))
+b['open_post'] = Button(Frame2, text=' 打开文章目录 ', command = open_post)
 
 
 for it in range(0, len(list)):
