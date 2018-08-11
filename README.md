@@ -1,5 +1,5 @@
 # Hexo Helper
 
-一个 Hexo 的辅助工具，让你在不打开命令行的情况下轻松使用 Hexo。
+一个自带 GUI 的 Hexo 辅助工具，让你在不打开命令行的情况下轻松使用 Hexo。
 
-运行环境：Python 3，一般自带 tkinter 库。
+运行环境：Python 3，需 tkinter 库（一般自带）。
