@@ -63,19 +63,19 @@ list = ['hexo_s', 'hexo_clean','hexo_g', 'hexo_d', 'open_dir', 'open_post', 'ope
 # [一键命令] 一键完成 ... 操作
 
 def hexo_s():
-    os.system('start cmd /c "cd {path} && hexo s"'.format(path = hexo_path))
+    os.system('start "Hexo 正在调试（请勿关闭本窗口）" /min cmd /c "cd {path} && hexo s"'.format(path = hexo_path))
 b['hexo_s'] = Button(Frame2, text=' 一键调试 ', command = hexo_s)
 
 def hexo_clean():
-    os.system('start cmd /c "cd {path} && hexo clean"'.format(path = hexo_path))
+    os.system('start "Hexo 正在清理提交目录" /min cmd /c "cd {path} && hexo clean"'.format(path = hexo_path))
 b['hexo_clean'] = Button(Frame2, text=' 一键清理 ', command = hexo_clean)
 
 def hexo_g():
-    os.system('start cmd /c "cd {path} && hexo g"'.format(path = hexo_path))
+    os.system('start "Hexo 正在生成静态博客文件" /min cmd /c "cd {path} && hexo g"'.format(path = hexo_path))
 b['hexo_g'] = Button(Frame2, text=' 一键生成 ', command = hexo_g)
 
 def hexo_d():
-    os.system('start cmd /c "cd {path} && hexo d -g"'.format(path = hexo_path))
+    os.system('start "Hexo 正在生成并提交提交静态博客文件" /min cmd /c "cd {path} && hexo d -g"'.format(path = hexo_path))
 b['hexo_d'] = Button(Frame2, text=' 一键提交 ', command = hexo_d)
 
 # [打开目录] 一键打开 ... 目录
