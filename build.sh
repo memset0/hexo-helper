@@ -1,0 +1,1 @@
+python3 -m eel main.py web --noconsole --onefile

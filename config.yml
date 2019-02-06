@@ -1,0 +1,5 @@
+hexo-path: ../
+command:
+  # This is only for macOS, if you are using Windows or other systems, change it yourself please.
+  open-file: "'/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code' {path}"
+  open-folder: "open {path}"
