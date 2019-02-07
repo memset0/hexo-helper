@@ -1,6 +1,7 @@
 dist
 build
 main
+main.app
 .DS_Store
 
 # Byte-compiled / optimized / DLL files
