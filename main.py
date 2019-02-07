@@ -50,7 +50,7 @@ def load(name):
 	if name == 'home':
 		eel.set_page_title('主页')
 		eel.set_content(mdui.load(mdui.get('home/body')))
-		load('post')
+		# load('post')
 	elif name == 'post':
 		eel.set_page_title('文章管理')
 		posts = []
