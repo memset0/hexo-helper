@@ -44,10 +44,10 @@ class Post:
 				self.config_text = temp
 				break
 		self.config = yaml.load(self.config_text)
-		self.config['date'] = str(self.config['date'])
-		self.config['filename'] = filename
-		self.tags = self.get('tags')
-		self.filename = filename
+		self.tags       = self.get('tags')
+		self.date       = str(self.config['date'])
+		self.title      = self.config['title']
+		self.filename   = filename
 		self.categories = self.get('categories')
 
 @eel.expose
@@ -65,14 +65,14 @@ def load(name):
 			if os.path.splitext(path)[-1] == '.md':
 				posts.append(Post(post_name))
 		content = ''
-		posts.sort(key=lambda x: x.config['date'], reverse=True)
+		posts.sort(key=lambda x: x.date, reverse=True)
 		for post in posts:
 			content += mdui.build({
-				'name': 'post/item',
-				'title': post.config['title'],
-				'filename': post.config['filename'],
-				'date': post.config['date'],
-				'tags': post.tags,
+				'name'      : 'post/item',
+				'date'      : post.date,
+				'tags'      : post.tags,
+				'title'     : post.title,
+				'filename'  : post.filename,
 				'categories': post.categories,
 			})
 		eel.set_content(mdui.get('post/panel').replace('{{ content }}', content))
