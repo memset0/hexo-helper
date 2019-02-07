@@ -15,6 +15,22 @@ function set_content(content) {
 	document.getElementById("content").innerHTML = content;
 }
 
+eel.expose(active_panel);
+function active_panel() {
+	panel = new mdui.Panel("#hexo-panel");
+	panel.closeAll();
+}
+
+eel.expose(panelCloseAll);
+function panelCloseAll() {
+	panel.closeAll();
+}
+
+eel.expose(panelOpenAll);
+function panelOpenAll() {
+	panel.openAll();
+}
+
 async function init() {
 	config = await eel.init()();
 	hexo_path = config['hexo-path'];
