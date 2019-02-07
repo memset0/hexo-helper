@@ -17,7 +17,7 @@ function set_content(content) {
 
 eel.expose(active_panel);
 function active_panel() {
-	panel = new mdui.Panel("#hexo-panel");
+	panel = new mdui.Panel("#hexo-panel", {'accordion': true});
 	panel.closeAll();
 }
 
