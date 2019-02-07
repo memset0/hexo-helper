@@ -47,3 +47,9 @@ e.g. `config.yml` 默认配置的路径对应了的场景。
    python3 -m eel main.py web --onefile --noconsole
    ```
 3. 等待运行完成后可在 `/dist` 目录找到您所需要的包
+
+# Demo
+
+![](https://i.loli.net/2019/02/07/5c5ba872a2a4d.png)
+
+![](https://i.loli.net/2019/02/07/5c5ba874e1ae6.png)
