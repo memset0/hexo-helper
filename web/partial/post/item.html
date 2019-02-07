@@ -1,0 +1,37 @@
+<div class="mdui-panel-item">
+	<div class="mdui-panel-item-header">
+		{{ title }}
+		<div class="mdui-toolbar-spacer"></div>
+		<button class="mdui-btn mdui-btn-icon mdui-ripple" onclick="eel.open_post('{{ filename }}')">
+			<i class="mdui-icon material-icons">add</i>
+		</button>
+	</div>
+	<div class="hexo-panel-content mdui-panel-item-body">
+		<div class="hexo-panel-content-item mdui-row">
+			<div class="hexo-panel-content-item-title mdui-col-xs-3 mdui-col-sm-2"> 文件 </div>
+			<div class="mdui-col-xs-15 mdui-col-sm-10"> <tt>{{ filename }}</tt> </div>
+		</div>
+		<div class="hexo-panel-content-item mdui-row">
+			<div class="hexo-panel-content-item-title mdui-col-xs-3 mdui-col-sm-2"> 日期 </div>
+			<div class="mdui-col-xs-15 mdui-col-sm-10"> <tt>{{ date }}</tt> </div>
+		</div>
+		<div class="hexo-panel-content-item mdui-row">
+			<div class="hexo-panel-content-item-title mdui-col-xs-3 mdui-col-sm-2"> 分类 </div>
+			<div class="mdui-col-xs-15 mdui-col-sm-10"> {{ categories }} </div>
+		</div>
+		<div class="hexo-panel-content-item mdui-row">
+			<div class="hexo-panel-content-item-title mdui-col-xs-3 mdui-col-sm-2"> 标签 </div>
+			<div class="mdui-col-xs-15 mdui-col-sm-10"> {{ tags }} </div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.hexo-panel-content-item {
+		margin-top: 8px;
+		margin-bottom: 8px;
+	}
+	.hexo-panel-content-item-title {
+		font-weight: 900;
+	}
+</style>

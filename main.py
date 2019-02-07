@@ -15,6 +15,11 @@ def open_file(path):
 def open_folder(path):
 	os.system(config['command']['open-folder'].format(path=path))
 
+@eel.expose
+def open_post(name):
+	print("open post", name)
+	open_file(hexo_path + '/source/_posts/' + name)
+
 class Post:
 	def get(self, key):
 		if not key in self.config.keys():
@@ -63,15 +68,12 @@ def load(name):
 		posts.sort(key=lambda x: x.config['date'], reverse=True)
 		for post in posts:
 			content += mdui.build({
-				'name': 'panel',
+				'name': 'post/item',
 				'title': post.config['title'],
-				'content': mdui.build({
-					'name': 'post/panel_content',
-					'filename': post.config['filename'],
-					'date': post.config['date'],
-					'tags': post.tags,
-					'categories': post.categories,
-				})
+				'filename': post.config['filename'],
+				'date': post.config['date'],
+				'tags': post.tags,
+				'categories': post.categories,
 			})
 		eel.set_content(mdui.get('post/panel').replace('{{ content }}', content))
 		eel.active_panel()
