@@ -17,7 +17,6 @@ def open_folder(path):
 
 @eel.expose
 def open_post(name):
-	print("open post", name)
 	open_file(hexo_path + '/source/_posts/' + name)
 
 class Post:
@@ -38,7 +37,7 @@ class Post:
 	def __init__(self, filename):
 		text = read_file(hexo_path + '/source/_posts/' + filename)
 		self.text = text
-		self.config_text = ''
+		self.config_text = '{}'
 		for temp in text.split('---'):
 			if re.sub(r'[ \n]*', '', temp) != '':
 				self.config_text = temp
@@ -55,7 +54,6 @@ def load(name):
 	if name == 'home':
 		eel.set_page_title('主页')
 		eel.set_content(mdui.load(mdui.get('home/body')))
-		# load('post')
 	elif name == 'post':
 		eel.set_page_title('文章管理')
 		posts = []
